@@ -26,7 +26,7 @@ class Layer:
         return np.vectorize(self.activation)(forward_values)
     
 def bin_cost(values, y):
-    return tf.nn.sigmoid_cross_entropy_with_logits(labels= y, logits= values)
+    return tf.nn.sigmoid_cross_entropy_with_logits(labels= y, logits= values).numpy().mean()
 
 def reg_cost(values, y):
     return tf.keras.metrics.mean_squared_error(y_true=y, y_pred=values)
@@ -56,3 +56,23 @@ def calculate_dimensions(input_size, computation_layer, output_layer):
     temp+= output_layer
     
     return temp
+
+def forward_pass_weights_bin(weights, X_train, y_train,input_size, computational_layer, output_layer):
+    
+    weights_1, bias_1, weights_2, bias_2 = unpack_ff_weights(weights,(input_size,computational_layer),(computational_layer,output_layer))
+    layerOne = Layer("input->hidden",weights_1,bias_1,X_train,relu)
+    A = layerOne.apply_activation()
+    layerTwo = Layer("hidden->output",weights_2,bias_2,A,sigmoid)
+    output = layerTwo.apply_activation()
+    cost = bin_cost(output, y_train)
+    return cost, output
+    
+def forward_pass_weights_reg(weights,X_train, y_train,input_size, computational_layer, output_layer):
+    
+    weights_1, bias_1, weights_2, bias_2 = unpack_ff_weights(weights,(input_size,computational_layer),(computational_layer,output_layer))
+    layerOne = Layer("input->hidden",weights_1,bias_1,X_train,relu)
+    A = layerOne.apply_activation()
+    layerTwo = Layer("hidden->output",weights_2,bias_2,A,sigmoid)
+    output = layerTwo.apply_activation()
+    cost = bin_cost(output, y_train)
+    return cost, output
