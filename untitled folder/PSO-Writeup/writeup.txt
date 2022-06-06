@@ -1,0 +1,23 @@
+This might be the return of the throne.
+
+Particle Swarm Optimization.
+
+	Particle Swarm Optimisation is a stochastic search algorithm that tries to optimise an objective function through an n dimensional search space. Eberhart and Kennedy proposed the PSO algorithm based on simulating social behaviour that is analogous to a flock birds or a school of fish. PSO has shown to outperform other global optimisation algorithms like the Genetic Algorithm(GA). The PSO optimisation algorithm inherits characteristics like swarm learning from Genetic Algorithm and stochasticity from Evolutionary Programming.
+
+	A particle can be thought of as a search agent that can observe an environment to get to the goal or close to the goal. A swarm is a collection of particles that interact with each other collectively to get to the same goal. In the PSO algorithm each particle represents a solution and moves towards the personal best solution and the global best solution of the swarm. In essence, the movement is entirely based on the personal best of the individual and global best solution of the swarm. Next, the PSO algorithm will be described mathematically.
+	
+	Let s be the swarm size and n be the dimensionality of the objective function, each particle, pi is the instance of an individual in the swarm where 1 < i < S, has a solution x(pi) (which belongs to R and limits) and a velocity v(pi) which belongs to Rn. Additionally, each individual keeps track of its personal best solution and the swarm keeps track of the best position out of  all the particles. First, each particle is assigned a random position in the search space. In an iteration all particles are evaluated based on their positions and the global best is updated. Then based on the new global best and individual best, the velocity and the position of the particle are updated. Equations (x) and (y) describe how the velocity and position of a particle are updated. Let p(i) be an individual from the swarm where 1<i<s.
+
+Velocity update
+Position update (Don't include J)
+
+Equations (x) and (y) are n-dimensional vectors. The scalar alpha is the learning rate which controls the degree of exploration when the velocity vector is updated. The values u1 and u2 are random variables that belong to the distribution U(0,1). The values c1 and c2 are the acceleration coefficients which regulate the personal best and global best components of the velocity update equation. The algorithm for the PSO algorithm is given below in ALG1.
+
+Algorithm.
+
+
+
+
+https://link.springer.com/chapter/10.1007/BFb0040812#citeas
+https://arc.aiaa.org/doi/10.2514/6.2005-1897
+
