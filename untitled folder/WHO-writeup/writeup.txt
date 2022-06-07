@@ -1,0 +1,31 @@
+Mixtape legend underground kings looking for the right ways to do the wrong things.
+
+
+Amali and Dinakaran propose the Wildebeest Herd Optimisation algorithm which is a stochastic optimisation algorithm that is modelled after wildebeest herding behaviour [ref to paper]. The WHO algorithm relies on the concept of herd behaviour and swarms intelligence, but it is not an iteration of the PSO algorithm. In the same paper, the WHO algorithm has been shown to significantly outperform state-of-the-art stochastic optimisation algorithms. Although modelling the exact behaviour of wildebeests is challenging, the WHO algorithm models five key properties from the wildebeest herding behaviour:
+
+1. Local movement: Wildebeests are shortsighted. They will mostly rely on their auditory and olfaction senses to find the feed.
+
+2. Herd instinct: Wildebeests move towards other random individuals at a dense feed zone. But the likelihood of the behaviour is small.
+
+3. Starvation avoidance: Wildebeests move away from barren land.
+
+4. Population pressure: Concentration of wildebeests at any given point will lead to overgrazing. This is balanced by using introducing scattering at the overgrazed point.
+
+5. Herd social memory: The herd retains the memory of previous experiences and capitalises on it to search to better solutions.
+
+
+The execution of the WHO algorithm is based on the principles outlined above. Initially, all the weights wildebeest instances are randomly assigned with a position in the search space. Every wildebeest instance takes a definite number of random exploratory steps from the current position in each iteration. The best-explored step for each instance is updated. Now, for each wildebeest instance apply herd instinct to a random instance from the herd. Later, apply starvation avoidance by taking the worst possible solution from the herd. Then use population pressure to scatter wildebeest instances from overgrazed zones. Finally, each instance takes explorative steps from the best solution to check if there is a better solution and update the global variables. This is a part of the social memory where instances share their knowledge.
+
+
+
+
+https://link.springer.com/article/10.1007/BF00317701
+
+https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0012758
+
+https://link.springer.com/referenceworkentry/10.1007/978-3-540-92910-9_48
+
+
+   
+
+

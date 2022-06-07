@@ -1,0 +1,19 @@
+Sunglasses and advil, last night was mad real
+
+Muthiah-Nakarajan proposes the Galactic Swarm Optimisation (GSO) algorithm which is a variation of the PSO algorithm and a global optimisation technique inspired from the galactic motion of celestial objects. In the original paper the GSO algorithm was found to outperform 8 variations of the PSO algorithm.
+
+The GSO algorithm inherits properties from stars, galaxies and clusters of galaxies. In the GSO algorithm a galaxy of stars is analogous to a subswarm and a cluster of galaxies is analogous to the super swarm (ref pap). Now the intuition behind the search algorithm will be delineated. First, each subswarm is a swarm of particles that try to optimise the objective function, similar to the PSO algorithm. This is analogous to the distribution of stars in a galaxy. Second, each superswarm is a collection of subswarm's best particles. The superswarm will then follow the PSO algorithm and try to optimise the objective function. This is analogous to clustering off galaxies. Next, the GSO algorithm will be defined mathematically.
+
+Let S be the number of subswarms in a superswarm, s be the number of particles in a subswarm and n be the dimensionality of the objective function, each particle pij is defined by the ith particle in the subswarm j. Each particle represents a position which is a solution to the objective function. Update equations are similar to that of the PSO algorithm, with the exception of inertia coefficient W. The inertial coefficient is updated based on eq X. The concept of acceleration coefficients (ci) is the same, but the subswarms and the superswarms do not have the same coefficients during an update.
+
+Now, the execution of the GSO algorithm is iterative and heavily based on the PSO algorithm. Since the PSO algorithm has been covered in the previous subsection, it will not be elucidated here. Once all the subswarms are randomly initialised, the first iteration is to run the PSO algorithm on each subswarm. Once each swarm is aware of the best particle, each swarm will contribute its (gbest) to the superswarm. The superswarm will run the PSO algorithm to optimise the objective function. The algorithm is given below ALG1. 
+
+ALG1
+
+
+
+
+
+
+
+https://www.sciencedirect.com/science/article/abs/pii/S1568494615006742
