@@ -29,7 +29,7 @@ def bin_cost(values, y):
     return tf.nn.sigmoid_cross_entropy_with_logits(labels= y, logits= values).numpy().mean()
 
 def reg_cost(values, y):
-    return tf.keras.metrics.mean_squared_error(y_true=y, y_pred=values)
+    return tf.keras.metrics.mean_squared_error(y_true=y, y_pred=values).numpy()[0]
 
 def unpack_ff_weights(weights, input_shape, mid_layer_shape):
     end = input_shape[0]*mid_layer_shape[0]
@@ -74,5 +74,8 @@ def forward_pass_weights_reg(weights,X_train, y_train,input_size, computational_
     A = layerOne.apply_activation()
     layerTwo = Layer("hidden->output",weights_2,bias_2,A,sigmoid)
     output = layerTwo.apply_activation()
-    cost = bin_cost(output, y_train)
+    cost = reg_cost(output, y_train)
     return cost, output
+
+def mae(values, y):
+    return tf.keras.metrics.mean_absolute_error(y_true=y, y_pred=values).numpy()[0]

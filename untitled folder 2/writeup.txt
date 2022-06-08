@@ -1,0 +1,9 @@
+https://www.sciencedirect.com/science/article/pii/S2210650220303710?via%3Dihub
+
+
+https://www.researchgate.net/figure/Iteration-Learning-Rate-and-Swarm-Setting-for-PSO-BP_tbl1_337203587/actions#caption
+
+https://machinelearningmastery.com/stochastic-optimization-for-machine-learning/
+
+https://machinelearningmastery.com/tour-of-optimization-algorithms/
+
