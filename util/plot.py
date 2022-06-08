@@ -29,9 +29,8 @@ def plot_output(xy, output, name):
     ax.set_xlabel('x-axis')
     ax.set_ylabel('y-axis')
     ax.set_zlabel('z-axis')
-    ax.set_title(name)
     
     plt.show()
     
-    plt.savefig(name+".png", format="png", dpi=800)
+    fig.savefig("../images/"+name+".png", format="png", dpi=250)
     
