@@ -6,6 +6,7 @@ import tensorflow as tf
 
 sigmoid = lambda z: float(1/(1 + np.exp(-z)))
 relu = lambda z: 0 if(z<=0) else float(z)
+standard = lambda z: z
 
 class Layer:
     def __init__(self,name,weights, bias, X,activation):
@@ -29,7 +30,7 @@ def bin_cost(values, y):
     return tf.nn.sigmoid_cross_entropy_with_logits(labels= y, logits= values).numpy().mean()
 
 def reg_cost(values, y):
-    return tf.keras.metrics.mean_squared_error(y_true=y, y_pred=values).numpy()[0]
+    return tf.keras.metrics.mean_squared_error(y_true=values, y_pred=y).numpy()[0]
 
 def unpack_ff_weights(weights, input_shape, mid_layer_shape):
     end = input_shape[0]*mid_layer_shape[0]
@@ -72,10 +73,11 @@ def forward_pass_weights_reg(weights,X_train, y_train,input_size, computational_
     weights_1, bias_1, weights_2, bias_2 = unpack_ff_weights(weights,(input_size,computational_layer),(computational_layer,output_layer))
     layerOne = Layer("input->hidden",weights_1,bias_1,X_train,relu)
     A = layerOne.apply_activation()
-    layerTwo = Layer("hidden->output",weights_2,bias_2,A,sigmoid)
+    layerTwo = Layer("hidden->output",weights_2,bias_2,A,standard)
     output = layerTwo.apply_activation()
-    cost = reg_cost(output, y_train)
+    cost = reg_cost(y_train, output)
     return cost, output
 
 def mae(values, y):
-    return tf.keras.metrics.mean_absolute_error(y_true=y, y_pred=values).numpy()[0]
+    return tf.keras.metrics.mean_absolute_error(y_true=values, y_pred=y).numpy()[0]
+
