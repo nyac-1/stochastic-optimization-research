@@ -27,7 +27,12 @@ class Layer:
         return np.vectorize(self.activation)(forward_values)
     
 def bin_cost(values, y):
-    return tf.nn.sigmoid_cross_entropy_with_logits(labels= y, logits= values).numpy().mean()
+
+    values = np.clip(values, 1e-10, 1.0)
+    term0 = np.sum(np.multiply(1 - y, np.log(1 - values +1e-10)))
+    term1 = np.sum(np.multiply(y, np.log(values+ 1e-10)))
+    cost = (-1/values.shape[1] * (term1 + term0))
+    return (cost)
 
 def reg_cost(values, y):
     return tf.keras.metrics.mean_squared_error(y_true=values, y_pred=y).numpy()[0]
