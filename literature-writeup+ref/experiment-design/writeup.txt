@@ -1,0 +1,17 @@
+I'm gonna kick my feet up then stare at the fan
+Turn the tv on throw my hand in my pants
+Nobody's gonna tell me I can't
+
+Results and Discussion
+
+The performance of classical PSO, GSO and WHO are displayed and compared in this section. To test the heuristic global optimisation algorithms, two problem frameworks were defined: a classification problem and an approximation problem. Firstly, the classification problem is to train a neural network on the iris dataset and classify the target variable. The Fisher iris dataset has information about three different kinds of species[]. The original dataset has ben modified into a binary classification problem by merging classes. Secondly, the 2D De Jong test suite of functions were used to train the neural net and approximate the multimodal functions. The test ranges and number of data pointed used to train the model are the same across all the tests.
+
+The aforementioned problems were trained on a single layer feed forward neural network and the results were captured for each of the heuristic global optimisation algorithm. The metrics used for the first problem are time taken, MAE, and RMSE. The metrics used for the second problem are MAE and RMSE.
+
+The parameters set for the optimisation algorithms were based on the population size of the swarm. Population was considered, instead of order of complexity, because the time was also considered a metric in the first experiment. Using a complexity even parameter configuration would not be a fair comparison. Refer to Table x.1 and x.2 for the parameters for experiment one and experiment two, respectively.
+
+
+
+
+Reference:
+1. https://link.springer.com/chapter/10.1007/978-1-4612-5098-2_2#citeas
