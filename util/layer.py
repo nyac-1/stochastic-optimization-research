@@ -7,6 +7,7 @@ import tensorflow as tf
 sigmoid = lambda z: float(1/(1 + np.exp(-z)))
 relu = lambda z: 0 if(z<=0) else float(z)
 standard = lambda z: z
+tanh = lambda z: tf.keras.activations.tanh(z)
 
 class Layer:
     def __init__(self,name,weights, bias, X,activation):
@@ -76,7 +77,7 @@ def forward_pass_weights_bin(weights, X_train, y_train,input_size, computational
 def forward_pass_weights_reg(weights,X_train, y_train,input_size, computational_layer, output_layer):
     
     weights_1, bias_1, weights_2, bias_2 = unpack_ff_weights(weights,(input_size,computational_layer),(computational_layer,output_layer))
-    layerOne = Layer("input->hidden",weights_1,bias_1,X_train,relu)
+    layerOne = Layer("input->hidden",weights_1,bias_1,X_train,tanh)
     A = layerOne.apply_activation()
     layerTwo = Layer("hidden->output",weights_2,bias_2,A,standard)
     output = layerTwo.apply_activation()
